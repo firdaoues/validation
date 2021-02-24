@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<form method="Post" action="{{path('validation')}}">
+
+
+<p> selectionnez la capacité des chambres </p> 
+
+   <select name="chambre" id="ch" class="form-group" >
+            <option value ="4">4 personnes</option>
+            <option value ="3">3 personnes</option>  
+            <option value ="3">2 personnes</option>  
+        </select>
+        
+            
+    
+    </br></br>
+   
+    <div id="newAgeId"></div>
+    <div id="dynamicCheck">
+    <input type="button" value="Ajouter pax" onclick="createNewAge();"/>
+    </div>
+
+    <script type="text/JavaScript">
+        function createNewAge() {
+            var i=0;
+        
+            var Newage = document.createElement('div');
+            Newage.innerHTML = "<input type='text' id='newInputBox' name='age.+i'>";
+            document.getElementById("newAgeId").appendChild(Newage);
+        }
+    </script>
+
+
+    </br>
+
+    <button type="submit" class="btn btn-success" > Valider </button>
+ 
+</form>
+
+{% endblock %}
